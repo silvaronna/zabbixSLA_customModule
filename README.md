@@ -5,6 +5,11 @@ A Zabbix 7.0 dashboard widget module that replaces the stock table-style SLA wid
 
 ![status](https://img.shields.io/badge/zabbix-7.0-red) ![license](https://img.shields.io/badge/license-MIT-blue)
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1e7df679-c479-4324-b397-6565b0107f4d" width="300" alt="Preview 1" />
+  <img src="https://github.com/user-attachments/assets/5eb9e49a-07a0-4c06-b653-784fcc299b22" width="300" alt="Preview 2" />
+</p>
+
 ## What it does
 
 You pick an SLA definition and one of its Services, and the widget pulls the current SLI% straight from Zabbix's own SLA engine (`sla.getsli`) — not a raw item value, not a manual calculation. It compares that number against a target SLO you define and renders:

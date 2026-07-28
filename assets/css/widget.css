@@ -1,0 +1,147 @@
+/* SLA Hero Card — dark, executive-grade KPI card */
+
+.sla-hero-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	padding: 16px 20px;
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: 10px;
+	background: linear-gradient(160deg, #1b1f27 0%, #12151b 100%);
+	color: #e8ebf0;
+	font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Header / project name */
+.sla-hero-header {
+	font-size: clamp(11px, 1.6vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #9aa3b2;
+	margin-bottom: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+/* Hero value — huge, bold, crisp */
+.sla-hero-value {
+	font-size: clamp(2.4rem, 9vw, 5rem);
+	font-weight: 800;
+	line-height: 1.05;
+	margin: 2px 0 10px;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Status badge — pill shaped */
+.sla-hero-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 14px;
+	border-radius: 999px;
+	font-size: clamp(11px, 1.4vw, 13px);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	margin-bottom: 12px;
+}
+
+/* Footer — target + sub-label */
+.sla-hero-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	font-size: clamp(10px, 1.2vw, 12px);
+	color: #7c8494;
+}
+
+.sla-hero-target {
+	font-weight: 600;
+	color: #aeb6c4;
+}
+
+.sla-hero-sublabel {
+	color: #6b7280;
+}
+
+/* ---------------------------------------------------------- */
+/* OK state — glowing emerald green                            */
+/* ---------------------------------------------------------- */
+.sla-hero-ok {
+	box-shadow: inset 0 0 0 1px rgba(0, 230, 118, 0.18), 0 0 32px rgba(0, 230, 118, 0.10);
+}
+
+.sla-hero-ok .sla-hero-value {
+	color: #00e676;
+	text-shadow: 0 0 18px rgba(0, 230, 118, 0.55), 0 0 42px rgba(0, 230, 118, 0.25);
+}
+
+.sla-hero-ok .sla-hero-badge {
+	color: #00e676;
+	background: rgba(0, 230, 118, 0.08);
+	border-color: rgba(0, 230, 118, 0.3);
+}
+
+/* ---------------------------------------------------------- */
+/* Breach state — glowing crimson red                           */
+/* ---------------------------------------------------------- */
+.sla-hero-breach {
+	box-shadow: inset 0 0 0 1px rgba(255, 23, 68, 0.22), 0 0 32px rgba(255, 23, 68, 0.14);
+	animation: sla-hero-alert-pulse 2.4s ease-in-out infinite;
+}
+
+.sla-hero-breach .sla-hero-value {
+	color: #ff1744;
+	text-shadow: 0 0 18px rgba(255, 23, 68, 0.6), 0 0 42px rgba(255, 23, 68, 0.3);
+}
+
+.sla-hero-breach .sla-hero-badge {
+	color: #ff1744;
+	background: rgba(255, 23, 68, 0.08);
+	border-color: rgba(255, 23, 68, 0.35);
+}
+
+@keyframes sla-hero-alert-pulse {
+	0%, 100% { box-shadow: inset 0 0 0 1px rgba(255, 23, 68, 0.22), 0 0 32px rgba(255, 23, 68, 0.14); }
+	50%      { box-shadow: inset 0 0 0 1px rgba(255, 23, 68, 0.4), 0 0 46px rgba(255, 23, 68, 0.28); }
+}
+
+/* ---------------------------------------------------------- */
+/* No-data state — neutral grey                                 */
+/* ---------------------------------------------------------- */
+.sla-hero-nodata .sla-hero-value {
+	color: #5c6472;
+}
+
+.sla-hero-nodata .sla-hero-badge {
+	color: #8a92a2;
+}
+
+/* Small widget sizes: drop the sub-label first, then tighten padding */
+.dashboard-grid-widget-content .sla-hero-card {
+	padding: 12px 14px;
+}
+
+/* Briefly pulses on every data refresh so a value/status change is
+   noticeable on an always-on NOC screen (triggered from class.widget.js). */
+.sla-hero-flash {
+	animation: sla-hero-flash-pulse 0.6s ease-out;
+}
+
+@keyframes sla-hero-flash-pulse {
+	0%   { filter: brightness(1.35); }
+	100% { filter: brightness(1); }
+}

@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2.0,
+    "id": "my_sla_hero_card",
+    "type": "widget",
+    "name": "SLA Hero Card",
+    "namespace": "SlaHeroCard",
+    "version": "1.0.0",
+    "author": "Azka Abdillah",
+    "description": "Executive-grade Hero Card / Big Metric widget for SLA / SLI KPI monitoring on NOC and executive dashboards.",
+    "actions": {
+        "widget.my_sla_hero_card.view": {
+            "class": "WidgetView"
+        }
+    },
+    "widget": {
+        "class": "Widget",
+        "form_class": "WidgetForm",
+        "js_class": "CWidgetSlaHeroCard",
+        "name": "SLA Hero Card",
+        "defaults": {
+            "width": 4,
+            "height": 3
+        }
+    },
+    "assets": {
+        "css": ["widget.css"],
+        "js": ["class.widget.js"]
+    }
+}
